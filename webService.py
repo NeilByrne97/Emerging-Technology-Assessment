@@ -6,10 +6,8 @@ import pandas as pd
 
 # Declare app
 app = Flask(__name__)
-
 # This code is adapted from the Jupyter notebook
 data = pd.read_csv('powerproduction.csv')
-
 # Outliers found in Jupyter notebook
 data = data.drop([208, 340, 404, 456, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499])
 
@@ -30,7 +28,7 @@ def decTree(speed): # Decision Tree Regression
 @app.route('/')
 def home():
     return redirect("static/index.html")
-speed = 0
+speed = 0 # Initialise result
 
 # Decision Tree Regression Training
 @app.route("/api/model1", methods = ["GET", "POST"])
